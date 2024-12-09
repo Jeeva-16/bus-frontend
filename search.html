@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bus Booking System</title>
+    <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+            integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+            crossorigin="anonymous"
+    />
+</head>
+<body>
+<!--//Navbar boottstrap class -->
+<nav class="navbar navbar-dark bg-dark navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <h1 style="color: white">Search Routes</h1>
+        </div>
+    </div>
+</nav>
+<section>
+    <div class="container p-5">
+        <div class="card">
+            <div class="card-header bg-success text-center fs-4">Find Your Route</div>
+
+            <div class="card-body">
+                <table class="table">
+                    <thead class=" " style="font-size:large; text-align:center;">
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Bus Name</th>
+                        <th scope="col">Starting Point</th>
+                        <th scope="col">Destination</th>
+                        <th scope="col">StartingTime</th>
+                        <th scope="col">Destination Time</th>
+                        <th scope="col">Actions</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="e,c:${bus}">
+                        <th scope="row">[[${c.count}]]</th>
+                        <td>[[${e.busName}]]</td>
+                        <td>[[${e.startingPoint}]]</td>
+                        <td>[[${e.destination}]]</td>
+                        <td>[[${e.startingTime}]]</td>
+                        <td>[[${e.destinationTime}]]</td>
+                        <td>
+                            <a th:href="@{showFormBook/{id}}"
+                               class="btn btn-sm btn-primary">Book</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
